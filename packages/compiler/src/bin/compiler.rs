@@ -1,7 +1,10 @@
-
+use std::{
+    fs::File,
+    path::{Path, PathBuf},
+};
 
 use clap::{Parser, Subcommand};
-
+use itertools::Itertools;
 use zk_regex_compiler::*;
 
 #[derive(Parser, Debug, Clone)]

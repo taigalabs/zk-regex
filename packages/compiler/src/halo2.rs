@@ -1,17 +1,17 @@
 use crate::js_caller::*;
 use crate::*;
-
+use fancy_regex::Regex;
 use itertools::Itertools;
-
-
-
-
+use petgraph::prelude::*;
+use serde::{Deserialize, Serialize};
+use serde_json::Value;
+use std::collections::HashSet;
 use std::io::BufWriter;
 use std::io::Write;
-
+use std::iter::FromIterator;
 use std::path::PathBuf;
-use std::{fs::File};
-
+use std::{collections::HashMap, fs::File};
+use thiserror::Error;
 
 impl RegexAndDFA {
     pub fn gen_halo2_tables(
